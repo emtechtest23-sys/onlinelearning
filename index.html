@@ -1,141 +1,1203 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Online Learning and Digital Education</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Digital Citizenship</title>
 
     <style>
+
+        /* ================================
+           BASIC WEBSITE
+        ================================= */
+
         body {
-            
             color: white;
             font-family: Arial, sans-serif;
             padding: 20px;
-            
-            background-image: url("images/AD.png");
-  background-size: 100% auto;
-  background-position: top center;
-  background-repeat: repeat-y;
+            margin: 0;
+
+            background-image: url("images/background.png");
+            background-size: 100% auto;
+            background-position: top center;
+            background-repeat: repeat-y;
         }
+
+
+        /* ================================
+           HEADINGS
+        ================================= */
 
         h1 {
             color: white;
             text-align: center;
-            font-size:60px;
+            font-size: 60px;
         }
 
         h2 {
             color: white;
             font-size: 50px;
         }
-    
-        p { 
+
+        p {
             font-size: 35px;
         }
-        .box {
-  width: 100%;
-  height: 1000px;
 
-  background-image: url("images/AD.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 
-  border: 1px solid blue;
-  padding: 20px;
-  margin-bottom: 15px;
-  border-radius: 8px;
-  box-sizing: border-box;
+        /* ================================
+           PLATFORM HEADINGS
+        ================================= */
+
+        .moodle-heading,
+        .blackboard-learn-heading,
+        .google-classroom-heading,
+        .ilias-heading {
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
-        img {
+        .moodle-logo,
+        .blackboard-logo,
+        .google-classroom-logo,
+        .ilias-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+
+        /* ================================
+           CONTENT BOX
+        ================================= */
+
+        .box {
+            width: 100%;
+            min-height: 1000px;
+
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            margin-bottom: 15px;
+
+            box-sizing: border-box;
+
+            backdrop-filter: blur(5px);
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.2),
+                inset 0 0 20px rgba(255, 255, 255, 0.08);
+
+            overflow: visible;
+        }
+
+
+        /* ================================
+           NORMAL IMAGES
+        ================================= */
+
+        .box img:not(.chibi-sit):not(.section-chibi):not(.developer-chibi):not(.device-chibi):not(.moodle-logo):not(.blackboard-logo):not(.google-classroom-logo):not(.ilias-logo) {
             width: 100%;
             height: 500px;
             object-fit: cover;
             border-radius: 5px;
         }
 
+
+        /* ================================
+           CHIBI SYSTEM
+        ================================= */
+
+        .chibi-system {
+            display: none;
+        }
+
+
+        /* ================================
+           ABOUT CHIBI
+        ================================= */
+
+        .about-chibi {
+            position: absolute;
+            top: 20px;
+            right: 5%;
+            width: 200px;
+            z-index: 100;
+        }
+
+        .about-chibi img {
+            width: 200px;
+            height: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+
+        /* ================================
+           ABOUT SPEECH
+        ================================= */
+
+        .about-speech {
+            position: absolute;
+            right: 170px;
+            top: 0;
+
+            width: 260px;
+            min-height: 65px;
+
+            padding: 15px 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 1.3;
+
+            background: white;
+            color: black;
+
+            border: 4px solid black;
+            border-radius: 25px;
+
+            box-shadow: 5px 5px 0 black;
+        }
+
+
+        /* ================================
+           TOOLS CHIBI
+        ================================= */
+
+        #tools-chibi-area {
+            position: absolute;
+            top: 50%;
+            right: 15px;
+
+            transform: translateY(-50%);
+
+            z-index: 10;
+        }
+
+        .chibi-teach {
+            width: 200px;
+            height: auto;
+        }
+
+        .teach-speech {
+            position: absolute;
+            right: 210px;
+            top: 10px;
+
+            width: 260px;
+            min-height: 65px;
+
+            padding: 15px 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            font-size: 20px;
+            font-weight: bold;
+
+            background: white;
+            color: black;
+
+            border: 4px solid black;
+            border-radius: 25px;
+
+            box-shadow: 5px 5px 0 black;
+        }
+
+
+        /* ================================
+           THINK CHIBI
+        ================================= */
+
+        #think-chibi-area {
+            position: absolute;
+            right: 15px;
+            bottom: 15px;
+
+            z-index: 10;
+        }
+
+        .chibi-think {
+            width: 200px;
+            height: auto;
+        }
+
+        .think-speech {
+            position: absolute;
+            right: 180px;
+            bottom: 120px;
+
+            width: 150px;
+            min-height: 55px;
+
+            padding: 12px 15px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 20px;
+            font-weight: bold;
+
+            background: white;
+            color: black;
+
+            border: 4px solid black;
+            border-radius: 25px;
+
+            box-shadow: 5px 5px 0 black;
+        }
+
+
+        /* ================================
+           REFERENCES CHIBI
+        ================================= */
+
+        .chibi-sit-container {
+            width: 100%;
+
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+
+            margin: 20px 0;
+        }
+
+        .chibi-sit {
+            width: 250px;
+            max-width: 90%;
+            height: auto;
+
+            object-fit: contain;
+            display: block;
+
+            margin: 0 auto;
+
+            border-radius: 0;
+        }
+
+
+        /* ================================
+           DEVELOPERS AREA
+        ================================= */
+
+        #INFO3 {
+            position: relative;
+            min-height: 1000px;
+        }
+
+        .developers-area {
+            position: relative;
+            width: 100%;
+            height: 850px;
+        }
+
+
+        /* ================================
+           ARROW CHIBI
+        ================================= */
+
+        .chibi-arrow {
+            position: absolute;
+
+            width: 200px;
+            height: auto;
+
+            right: 15px;
+            bottom: 230px;
+
+            z-index: 10;
+        }
+
+
+        /* ================================
+           ARROW SPEECH
+        ================================= */
+
+        .arrow-speech {
+            position: absolute;
+
+            right: 225px;
+            bottom: 300px;
+
+            width: 260px;
+            min-height: 65px;
+
+            padding: 15px 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 1.3;
+
+            background: white;
+            color: black;
+
+            border: 4px solid black;
+            border-radius: 25px;
+
+            box-shadow: 5px 5px 0 black;
+
+            z-index: 11;
+        }
+
+
+        /* ================================
+           BOTTOM DEVELOPER CHIBIS
+        ================================= */
+
+        .developer-chibi {
+            position: absolute;
+
+            width: 200px;
+            height: auto;
+
+            bottom: 10px;
+
+            z-index: 10;
+        }
+
+        .chibi-greet {
+            left: 5%;
+        }
+
+        .chibi-shocked {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .chibi-check {
+            right: 5%;
+        }
+
+
+        /* ================================
+           DEVICES AREA
+        ================================= */
+
+        #INFO4 {
+            position: relative;
+        }
+
+        .devices-area {
+            position: relative;
+            width: 100%;
+            padding-bottom: 230px;
+        }
+
+
+        /* ================================
+           DEVICE CHIBIS
+        ================================= */
+
+        .device-chibi {
+            position: absolute;
+
+            width: 200px;
+            height: auto;
+
+            bottom: 5px;
+
+            z-index: 10;
+        }
+
+        .chibi-need {
+            left: 30px;
+        }
+
+        .chibi-point {
+            right: 30px;
+        }
+
+
+        /* ================================
+           NAVIGATION
+        ================================= */
+
         .buttons {
-            text-align:center;
+            text-align: center;
             margin: 5px;
         }
 
         .buttons a {
             display: inline-block;
-            background: linear-gradient(to right, #4facfe, #94E9F3);
+
+            background: linear-gradient(
+                to right,
+                #4facfe,
+                #94E9F3
+            );
+
             color: white;
             text-decoration: none;
-            padding: 20px 20px;
-            font-weight: bold;
-            border-radius: 10px;
-            margin: 15px;
-            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
 
+            padding: 20px;
+
+            font-weight: bold;
+
+            border-radius: 10px;
+
+            margin: 15px;
+
+            filter: drop-shadow(
+                2px 2px 4px rgba(0, 0, 0, 0.5)
+            );
         }
 
         .buttons a:hover {
-            background-color: orange;
+            background: linear-gradient(
+                to right,
+                orange,
+                #ffcc66
+            );
+
             color: white;
-            
         }
+
+
+        /* ================================
+           CONTENT SHOW / HIDE
+        ================================= */
 
         .content {
             display: none;
         }
-    
-        .content:target {
+
+        .content.active {
             display: block;
         }
 
-        #all:target ~ .content {
-            display: block;
+
+        /* ================================
+           REFERENCES LIST
+        ================================= */
+
+        .website-list {
+            font-size: 30px;
+            line-height: 1.8;
         }
+
+
+        /* ================================
+           PHONE SETTINGS
+        ================================= */
+
+        @media (max-width: 600px) {
+
+            body {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 40px;
+            }
+
+            h2 {
+                font-size: 32px;
+            }
+
+            p {
+                font-size: 20px;
+            }
+
+
+            /* LOGOS */
+
+            .moodle-logo,
+            .blackboard-logo,
+            .google-classroom-logo,
+            .ilias-logo {
+                width: 40px;
+                height: 40px;
+            }
+
+
+            /* ABOUT */
+
+            .about-chibi {
+                top: 10px;
+                right: 0;
+                width: 130px;
+            }
+
+            .about-chibi img {
+                width: 130px;
+            }
+
+            .about-speech {
+                right: 105px;
+                top: 0;
+
+                width: 180px;
+                min-height: 55px;
+
+                font-size: 16px;
+                padding: 12px 15px;
+            }
+
+
+            /* OTHER CHIBIS */
+
+            .chibi-teach,
+            .chibi-think,
+            .chibi-arrow,
+            .developer-chibi,
+            .device-chibi {
+                width: 130px;
+            }
+
+
+            /* TOOLS */
+
+            #tools-chibi-area {
+                right: 5px;
+                top: 50%;
+            }
+
+            .teach-speech {
+                right: 120px;
+                top: 0;
+
+                width: 170px;
+                min-height: 55px;
+
+                font-size: 16px;
+                padding: 12px 15px;
+            }
+
+
+            /* THINK */
+
+            #think-chibi-area {
+                right: 5px;
+                bottom: 5px;
+            }
+
+            .think-speech {
+                right: 120px;
+                bottom: 90px;
+
+                width: 150px;
+
+                font-size: 16px;
+            }
+
+
+            /* REFERENCES */
+
+            .chibi-sit {
+                width: 200px;
+            }
+
+            .website-list {
+                font-size: 18px;
+            }
+
+            /* DEVICES */
+
+            .devices-area {
+                padding-bottom: 155px;
+            }
+
+            .chibi-need {
+                left: 5px;
+                bottom: 5px;
+            }
+
+            .chibi-point {
+                right: 5px;
+                bottom: 5px;
+            }
+
+
+            /* BUTTONS */
+
+            .buttons a {
+                padding: 15px;
+                margin: 8px;
+                font-size: 14px;
+            }
+        }
+
     </style>
+
 </head>
+
 
 <body>
 
-    <h1>SPODERMAN YO LMK</h1>
 
-    <p style="text-align:center;">
-        EXAMPLE ONLYYYYYY
-    </p>
+    <!-- ================================
+         ABOUT CHIBI
+    ================================= -->
+
+    <div id="about-chibi-system" class="chibi-system about-chibi">
+
+        <div class="about-speech">
+            WELCOME TO THE ABOUT SECTION!
+        </div>
+
+        <img
+            src="images/ChibiHappy.png"
+            alt="Chibi Happy">
+
+    </div>
+
+
+    <!-- ================================
+         NAVIGATION
+    ================================= -->
 
     <div class="buttons">
-        <a href="https://emtechtest23-sys.github.io/group4/">HOME</a>
-        <a href="#IDK">IDK</a>
-        <a href="#EXAMPLE">3XAMPLE</a>
-        <a href="#INFO">INFO</a>
+
+        <a href="test.html">
+            HOME
+        </a>
+
+        <a href="#IDK" onclick="showSection('IDK')">
+            ABOUT SECTION
+        </a>
+
+        <a href="#EXAMPLE" onclick="showSection('EXAMPLE')">
+            TOOLS
+        </a>
+
+        <a href="#INFO1" onclick="showSection('INFO1')">
+            PROBLEMS & SOLUTIONS
+        </a>
+
+        <a href="#INFO2" onclick="showSection('INFO2')">
+            REFERENCES
+        </a>
+
+        <a href="#INFO4" onclick="showSection('INFO4')">
+            DEVICES
+        </a>
+
+        <a href="#INFO5" onclick="showSection('INFO5')">
+            FOOTER
+        </a>
+
     </div>
 
+
+    <!-- ================================
+         ABOUT
+    ================================= -->
 
     <div id="IDK" class="box content">
-        <img src="Image.jpeg">
 
-        <h2>TEST LETS SAY SPODERMAN</h2>
+        <img
+            src="images/Letters5.webp"
+            alt="Letters">
 
-        <p class="text">
-            THIS IS ABOUR SPODERMAN
+        <h2>
+            What is Online Learning?
+        </h2>
+
+        <p>
+            Online learning is a specific type of digital
+            education that happens entirely or partially
+            over the internet. Students and teachers connect
+            remotely using video lectures, live classes, and
+            online modules. It is also called e-learning.
         </p>
+
+        <h2>
+            What is Digital Education?
+        </h2>
+
+        <p>
+            Digital education is a broad term for using
+            any technology to improve learning. This
+            includes smart boards, tablets, software,
+            and online platforms used inside physical
+            classrooms or at home.
+        </p>
+
+        <h2>
+            Difference Between Online and Digital Education
+        </h2>
+
+        <p>
+            Digital education covers all technology use in
+            learning, including tools used in traditional
+            classrooms. Online learning is a narrower category
+            that is specifically internet-based and remote.
+        </p>
+
     </div>
+
+
+    <!-- ================================
+         TOOLS
+    ================================= -->
 
     <div id="EXAMPLE" class="box content">
-        <img src="image1.jpg">
 
-        <h2>this is example only</h2>
+        <div id="tools-chibi-area" class="chibi-system">
+
+            <div class="teach-speech">
+                Let me introduce you to the Tools
+            </div>
+
+            <img
+                class="chibi-teach"
+                src="images/ChibiTeach.png"
+                alt="Chibi Teach">
+
+        </div>
+
+
+        <h2 class="moodle-heading">
+
+            MOODLE
+
+            <img
+                class="moodle-logo"
+                src="images/Moodle.png"
+                alt="Moodle Logo">
+
+        </h2>
 
         <p>
-           idk what to pud here
+            Moodle is a free and open-source learning
+            management system used by schools and universities
+            worldwide. It is a web-based platform where teachers
+            can post assignments, quizzes, forums, and other
+            learning activities. It is highly customizable and
+            works on both computers and mobile devices.
         </p>
-    </div>
 
-    <div id="INFO" class="box content">
-        <img src="Image.jpeg">
 
-        <h2>anything</h2>
+        <h2 class="blackboard-learn-heading">
+
+            BLACKBOARD LEARN
+
+            <img
+                class="blackboard-logo"
+                src="images/Blackboard-logo.png"
+                alt="Blackboard Learn Logo">
+
+        </h2>
 
         <p>
-            whateva u say
-            </p>
+            Blackboard Learn is a widely used learning
+            management system designed to deliver, manage, and
+            track online education. It provides a central online
+            space where instructors can post course materials,
+            create assessments, facilitate discussions, and
+            manage grades. It is highly flexible and can be used
+            for fully online courses, blended learning, or to
+            supplement traditional classrooms.
+        </p>
+
+
+        <h2 class="google-classroom-heading">
+
+            GOOGLE CLASSROOM
+
+            <img
+                class="google-classroom-logo"
+                src="images/Google-Class.png"
+                alt="Google Classroom Logo">
+
+        </h2>
+
+        <p>
+            Google Classroom is a free online learning
+            platform that is part of Google Workspace for
+            Education. It is designed to help teachers create
+            classes, distribute assignments, give feedback,
+            and communicate with students in a paperless way.
+        </p>
+
+
+        <h2 class="ilias-heading">
+
+            ILIAS
+
+            <img
+                class="ilias-logo"
+                src="images/Ilias.png"
+                alt="ILIAS Logo">
+
+        </h2>
+
+        <p>
+            ILIAS is an open-source learning management
+            system that provides tools for online learning,
+            course management, assessments, communication,
+            and collaboration. It can be used by educational
+            institutions and organizations to create and manage
+            digital learning environments.
+        </p>
+
     </div>
-    
+
+
+    <!-- ================================
+         PROBLEMS & SOLUTIONS
+    ================================= -->
+
+    <div id="INFO1" class="box content">
+
+        <div id="think-chibi-area" class="chibi-system">
+
+            <div class="think-speech">
+                Hmm
+            </div>
+
+            <img
+                class="chibi-think"
+                src="images/ChibiThink.png"
+                alt="Chibi Think">
+
+        </div>
+
+
+        <h2>
+            SOLUTIONS FOR ONLINE LEARNING CHALLENGES
+        </h2>
+
+
+        <h2>
+            <em>Connection Problem</em>
+        </h2>
+
+        <ul class="website-list">
+            <li>Use a stable internet connection</li>
+            <li>Switch to a place with a stronger signal</li>
+            <li>Connect via ethernet cable instead of Wi-Fi</li>
+            <li>Close unused apps and browser tabs</li>
+            <li>Upgrade your internet plan if needed</li>
+            <li>Use a mobile hotspot as backup</li>
+            <li>Download recorded lectures for offline viewing</li>
+            <li>Schedule study times during off-peak internet hours</li>
+        </ul>
+
+
+        <h2>
+            <em>For Self-Discipline & Time Management</em>
+        </h2>
+
+        <ul class="website-list">
+            <li>Set a fixed study schedule</li>
+            <li>Create a dedicated study space away from distractions</li>
+            <li>Use timers or productivity apps</li>
+            <li>Break tasks into smaller chunks</li>
+        </ul>
+
+
+        <h2>
+            <em>Social Isolation</em>
+        </h2>
+
+        <ul class="website-list">
+            <li>Join virtual co-working sessions</li>
+            <li>Form online study groups</li>
+            <li>Schedule regular check-ins with classmates</li>
+            <li>Participate actively in live class discussions</li>
+        </ul>
+
+
+        <h2>
+            <em>Screen Fatigue and Eye Health</em>
+        </h2>
+
+        <ul class="website-list">
+            <li>Follow the 20-20-20 rule</li>
+            <li>Take short breaks between sessions</li>
+            <li>Use audio-only mode for some lectures</li>
+            <li>Adjust screen brightness and use blue light filters</li>
+        </ul>
+
+
+        <h2>
+            <em>Technical Issues</em>
+        </h2>
+
+        <ul class="website-list">
+            <li>Test equipment before class starts</li>
+            <li>Keep backup devices ready if possible</li>
+            <li>Communicate with teachers about problems in advance</li>
+            <li>Use alternative platforms when one fails</li>
+        </ul>
+
+
+        <h2>
+            <em>For Distractions at Home</em>
+        </h2>
+
+        <ul class="website-list">
+            <li>Inform family members of your class schedule</li>
+            <li>Use noise-canceling headphones</li>
+            <li>Close unnecessary browser tabs and notifications</li>
+            <li>Set your phone to Do Not Disturb mode</li>
+        </ul>
+
+    </div>
+
+
+    <!-- ================================
+         REFERENCES
+    ================================= -->
+
+    <div id="INFO2" class="box content">
+
+        <h2>
+            List of Websites Used for Information Gathering
+        </h2>
+
+        <ul class="website-list">
+
+            <li>
+                <a href="https://support.zoom.com/hc">
+                    support.zoom.com
+                </a>
+            </li>
+
+            <li>
+                <a href="https://www.deped.gov.ph/">
+                    www.deped.gov.ph
+                </a>
+            </li>
+
+            <li>
+                <a href="https://www.pna.gov.ph/">
+                    www.pna.gov.ph
+                </a>
+            </li>
+
+            <li>
+                <a href="https://depedsarangani.org/">
+                    depedsarangani.org
+                </a>
+            </li>
+
+            <li>
+                <a href="https://mb.com.ph/">
+                    mb.com.ph
+                </a>
+            </li>
+
+            <li>
+                <a href="https://developers.zoom.us/">
+                    developers.zoom.us
+                </a>
+            </li>
+
+            <li>
+                <a href="https://zoomus.service-now.com/hc">
+                    zoomus.service-now.com
+                </a>
+            </li>
+
+            <li>
+                Google Scholar
+            </li>
+
+            <li>
+                <a href="https://pubmed.ncbi.nlm.nih.gov/">
+                    PubMed
+                </a>
+            </li>
+
+        </ul>
+
+
+        <div class="chibi-sit-container">
+
+            <img
+                src="images/ChibiSit.png"
+                class="chibi-sit"
+                alt="Chibi sitting">
+
+        </div>
+
+    </div>
+
+
+    <!-- ================================
+         DEVICES
+    ================================= -->
+
+    <div id="INFO4" class="box content">
+
+        <div class="devices-area">
+
+            <h2>
+                <em>Devices Used for Online Learning</em>
+            </h2>
+		<p>
+                    <strong>Computers and Laptops:</strong><br>
+                    Work on Windows, macOS, and Linux.
+                    Need a processor, at least 4GB of RAM,
+                    and a stable internet connection.<br><br>
+               
+
+               
+                    <strong>Mobile Devices:</strong><br>
+                    Smartphones and tablets running iOS or Android.
+                    Use mobile apps for Zoom, Google Meet,
+                    and other platforms.<br><br>
+                
+
+                
+                    <strong>Smart Displays:</strong><br>
+                    Devices like Amazon Echo Show 8 and
+                    Echo Show 10 support Zoom and other video apps.<br><br>
+               
+
+                
+                    <strong>Specialized Meeting Hardware:</strong><br>
+                    High-end setups for conference rooms,
+                    including all-in-one video bars and
+                    professional audio equipment from brands
+                    like HP Poly.<br><br>
+               </p>
+
+
+            <h2>
+                <em>Basic Requirements for All Devices!</em>
+            </h2>
+
+            <ul class="website-list">
+
+                <li>A Zoom account or platform account</li>
+                <li>Stable internet connection (Wi-Fi or cellular)</li>
+                <li>Speakers and microphone (built-in or external)</li>
+                <li>Webcam or HD camera for video</li>
+
+            </ul>
+
+
+            <!-- DEVICE CHIBIS -->
+
+            <img
+                class="device-chibi chibi-need"
+                src="images/ChibiNeed.png"
+                alt="Chibi Need">
+
+            <img
+                class="device-chibi chibi-point"
+                src="images/ChibiPoint.png"
+                alt="Chibi Point">
+
+        </div>
+
+    </div>
+
+
+    <!-- ================================
+         FOOTER
+    ================================= -->
+
+   <footer id="INFO5" class="box content">
+
+  <center>  <h2>
+        Thank You for Visiting Our Website!
+    </h2>
+ </center>
+    <p>
+       We hope you learned something useful about Digital Citizenship
+    and Online Learning. We hope this website helped you understand
+    the importance of using technology responsibly and safely.
+    Digital tools can make learning easier, more convenient, and
+    more enjoyable when they are used properly. Always remember to
+    respect others, protect your personal information, and think
+    carefully before sharing anything online. We encourage everyone
+    to become responsible digital citizens and use technology in a
+    positive way. Thank you for taking the time to visit and explore
+    our website!
+    </p>
+
+
+ <img
+                class="device-chibi chibi-point"
+                src="images/ChibiPoint.png"
+                alt="Chibi Point">
+
+</footer>
+
+    <!-- ================================
+         JAVASCRIPT
+    ================================= -->
+
+    <script>
+
+        function showSection(section) {
+
+            // Hide all content sections
+            const sections = document.querySelectorAll(".content");
+
+            sections.forEach(function (item) {
+                item.classList.remove("active");
+            });
+
+
+            // Hide all Chibi systems
+            const chibis = document.querySelectorAll(".chibi-system");
+
+            chibis.forEach(function (chibi) {
+                chibi.style.display = "none";
+            });
+
+
+            // Show selected section
+            const selected = document.getElementById(section);
+
+            if (selected) {
+                selected.classList.add("active");
+            }
+
+
+            // ABOUT
+            if (section === "IDK") {
+                document.getElementById(
+                    "about-chibi-system"
+                ).style.display = "block";
+            }
+
+
+            // TOOLS
+            if (section === "EXAMPLE") {
+                document.getElementById(
+                    "tools-chibi-area"
+                ).style.display = "block";
+            }
+
+
+            // PROBLEMS
+            if (section === "INFO1") {
+                document.getElementById(
+                    "think-chibi-area"
+                ).style.display = "block";
+            }
+
+        }
+
+    </script>
+
 </body>
 </html>
